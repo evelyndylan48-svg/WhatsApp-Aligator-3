@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Global Phone Number Generator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="dark">
+
+<div id="loader">
+    <div class="spinner"></div>
+    <p>Loading prefix database…</p>
+</div>
+
+<div class="top-bar">
+    <div class="brand">Global Number Generator</div>
+    <div class="theme-toggle">
+        <span>☀️</span>
+        <label class="switch">
+            <input type="checkbox" id="themeToggle">
+            <span class="slider"></span>
+        </label>
+        <span>🌙</span>
+    </div>
+</div>
+
+<div class="container">
+    <h1>Phone Number Generator</h1>
+
+    <div class="row">
+        <label>Country:
+            <select id="countrySelect">
+                <option value="US">🇺🇸 United States</option>
+                <option value="CA">🇨🇦 Canada</option>
+                <option value="UK">🇬🇧 United Kingdom</option>
+                <option value="AU">🇦🇺 Australia</option>
+                <option value="DE">🇩🇪 Germany</option>
+            </select>
+        </label>
+    </div>
+
+    <div class="row">
+        <label>Server Mode:
+            <select id="serverMode">
+                <option value="A">SERVER A — Universal (NXX 200–999)</option>
+                <option value="B">SERVER B — Real Prefix DB</option>
+                <option value="C">SERVER C — Hybrid Smart</option>
+            </select>
+        </label>
+    </div>
+
+    <div class="row">
+        <label>Area / Region Code (NPA or local code):
+            <input type="text" id="areaCode" maxlength="5" placeholder="e.g., 806 (US), 20 (UK)">
+        </label>
+    </div>
+
+    <div class="row nanpa-only">
+        <label>Prefix (NXX, for NANPA countries):
+            <select id="prefixSelect"></select>
+        </label>
+    </div>
+
+    <div class="row">
+        <label>How many numbers (max 20,000):
+            <input type="number" id="limit" min="1" max="20000" value="100">
+        </label>
+        <div class="quick-limits">
+            <button type="button" data-limit="50">50</button>
+            <button type="button" data-limit="100">100</button>
+            <button type="button" data-limit="500">500</button>
+            <button type="button" data-limit="1000">1,000</button>
+            <button type="button" data-limit="5000">5,000</button>
+            <button type="button" data-limit="20000">20,000</button>
+        </div>
+    </div>
+
+    <button id="generateBtn">Generate Numbers</button>
+
+    <div class="export-buttons">
+        <button id="csvBtn" style="display:none;">Download CSV</button>
+        <button id="vcfBtn" style="display:none;">Download vCard</button>
+    </div>
+
+    <pre id="output"></pre>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
